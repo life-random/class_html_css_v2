@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* card-top */
+.card {
+  background-color: aliceblue;
+  width: 320px;
+  padding: 30px 24px;
+  border-radius: 16px;
+  box-shadow: 20px 40px 40px rgba(155, 200, 255, 0.5);
+  text-align: center;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.role {
+  font-size: 14px;
+  color: cornflowerblue;
+  margin-bottom: 10px;
+}
+
+/* stat-set */
+.stat-set {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid cornflowerblue;
+  border-bottom: 1px solid cornflowerblue;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat div {
+  font-weight: bolder;
+}
+
+.stat span {
+  font-size: 14px;
+  color: cornflowerblue;
+}
+
+/* skill-set & btn-follow */
+.skill_set {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.skill {
+  font-size: 14px;
+  color: white;
+  background-color: cornflowerblue;
+  border-radius: 20px;
+  padding: 4px 12px;
+
+  cursor: pointer;
+}
+
+.btn-follow {
+  font-size: 14px;
+  color: white;
+  background-color: cornflowerblue;
+  padding: 10px;
+  width: 100%;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.skill:hover {
+  background-color: lightblue;
+}
+
+.btn-follow:hover {
+  background-color: lightblue;
+}

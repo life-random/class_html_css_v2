@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      }
+
+      /* 패턴 1 */
+      .demo-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        background-color: blue;
+        padding: 20px 40px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      /* 패턴 2 */
+      nav {
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        color: #fff;
+        height: 60px;
+        margin: 20px 0;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0 15px;
+      }
+
+      /* 패턴 3 */
+
+      .demo-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        background-color: #f9fbfc;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .card {
+        flex: 1 1 200px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      /* 패턴 4 */
+
+      .demo_sidebar-layout {
+        display: flex;
+        min-height: 200px;
+        margin-bottom: 20px;
+      }
+
+      .sidebar {
+        width: 200px;
+        color: #fff;
+        background-color: #1e293c;
+        padding: 20px;
+      }
+
+      .content {
+        flex: 1;
+        background-color: #f1f5f9;
+        padding: 20px;
+      }
+
+      /* 패턴 5 */
+      .demo-hero {
+        height: 300px;
+        background: url("https://picsum.photos/seed/hero/1200/300") center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 32px;
+        text-shadow: 10px 20px 8px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+      }
+
+      /* 패턴 6 */
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .content-wrapper {
+        flex: 1;
+      }
+
+      footer {
+        padding: 20px;
+        background-color: #1e293c;
+        color: white;
+        text-align: center;
+      }
+
+      /* 패턴 7 : 반응형 */
+      .demo-responsive {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .col {
+        flex: 1;
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .demo-responsive {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 6. 스피키 푸터 -->
+    <div class="content-wrapper">
+      <!-- 패턴 1 : 완전 가운데 정렬 -->
+      <section class="demo-center">
+        <div class="box">패턴 1 : 완전 가운데</div>
+      </section>
+
+      <!-- 패턴 2 : 네비게이션바 -->
+      <nav>
+        <span>Logo</span>
+        <div>
+          <a href="">메뉴 1</a>
+          <a href="">메뉴 2</a>
+          <a href="">메뉴 3</a>
+        </div>
+      </nav>
+
+      <!-- 패턴 3 카드 그리그 -->
+      <section class="demo-grid">
+        <div class="card">카드 1</div>
+        <div class="card">카드 2</div>
+        <div class="card">카드 3</div>
+        <div class="card">카드 4</div>
+      </section>
+
+      <!-- 패턴 4 : 사이드바 + 메인 -->
+      <div class="demo_sidebar-layout">
+        <aside class="sidebar">사이드바</aside>
+        <div class="content">메인 컨텐츠</div>
+      </div>
+
+      <!-- 패턴 5 히어로 세션 -->
+      <div class="demo-hero">
+        <h2>히어로 세션</h2>
+      </div>
+    </div>
+
+    <!-- 패턴 7 : 반응형 2단에서 1단으로 -->
+    <div class="demo-responsive">
+      <div class="col">왼쪽</div>
+      <div class="col">오른쪽</div>
+    </div>
+
+    <!-- 패턴 6 스티키 푸터 -->
+    <footer>@ 2026 CSS Layout Patterns...</footer>
+  </body>
+</html>

@@ -150,6 +150,7 @@ ul {
   color: var(--ad-sub);
   background-color: var(--ad-bg);
   outline: none;
+  width: 300px;
 }
 
 .profile {

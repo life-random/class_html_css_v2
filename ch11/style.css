@@ -1,0 +1,377 @@
+/* ------------------------------------
+  전역 변수 및 설정
+  ------------------------------------*/
+/* ================================
+   CSS 변수: 색상 테마
+================================ */
+:root {
+  /* 사이드바 (어두운 영역) */
+  --ad-side: #1e293b;
+  --ad-side-text: #94a3b8;
+  --ad-side-active: #334155;
+
+  /* 본문 (밝은 영역) */
+  --ad-bg: #f1f5f9; /* 페이지 배경 */
+  --ad-surface: #ffffff; /* 카드 배경 */
+  --ad-line: #e2e8f0; /* 테두리 */
+  --ad-text: #1e293b; /* 본문 글자 */
+  --ad-sub: #64748b; /* 보조 글자 */
+
+  --ad-primary: #4f46e5; /* 강조, 차트 막대 */
+  --ad-up: #16a34a; /* 증가 */
+  --ad-down: #dc2626; /* 감소 */
+
+  --ad-badge-bg-completed: #dcfce7; /* 배지 배경 - 완료 */
+  --ad-badge-bg-in-transit: #dbeafe; /* 배지 배경 - 배송중 */
+  --ad-badge-bg-pending: #fef3c7; /* 배지 배경 - 결제대기 */
+  --ad-badge-bg-cancelled: #fee2e2; /* 배지 배경 - 취소 */
+
+  --ad-badge-text-completed: #166534; /* 배지 글자색 - 완료 */
+  --ad-badge-text-in-transit: #1e40af; /* 배지 글자색 - 배송중 */
+  --ad-badge-text-pending: #92400e; /* 배지 글자색 - 결제대기 */
+  --ad-badge-text-cancelled: #991b1b; /* 배지 글자색 - 취소 */
+}
+
+/* ================================
+   1단계: 리셋 / 전역 스타일
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+  background: var(--ad-bg);
+  color: var(--ad-text);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none; /* 목록 앞의 점을 없앤다 */
+}
+
+/* ================================
+   2단계: 레이아웃
+================================ */
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  height: 100%;
+  width: 240px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--ad-side);
+  color: var(--ad-side-text);
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 30px 10px;
+}
+
+.user-img {
+  border-radius: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title {
+  font-size: 12px;
+  font-weight: lighter;
+  margin: 5px;
+}
+
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+  font-size: 11px;
+  margin: 10px;
+}
+
+.nav-item {
+  padding: 5px;
+  font-size: 13px;
+}
+
+.nav-item.active {
+  background-color: var(--ad-side-active);
+  border-radius: 6px;
+}
+
+/* main - header*/
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--ad-surface);
+  height: 60px;
+}
+
+.search {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--ad-line);
+  border-radius: 5px;
+  color: var(--ad-sub);
+  background-color: var(--ad-bg);
+  outline: none;
+}
+
+.profile {
+  gap: 10px;
+  display: flex;
+}
+
+.profile-img {
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* main */
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.main-title {
+  margin-bottom: 24px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+}
+.dashboard-date {
+  font-size: 12px;
+}
+
+.dashboard-container {
+  display: flex;
+  gap: 16px;
+
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.dashboard-card {
+  background-color: var(--ad-surface);
+  padding: 18px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 190px;
+}
+
+.card-title {
+  font-size: 15px;
+  color: var(--ad-side-text);
+}
+.card-value {
+  color: var(--ad-text);
+  font-size: 26px;
+  font-weight: bold;
+}
+.card-description {
+  font-size: 12px;
+  font-weight: 600;
+}
+.card-description.up {
+  color: var(--ad-up);
+}
+.card-description.down {
+  color: var(--ad-down);
+}
+
+/* main - table */
+
+.recent-orders {
+  background-color: var(--ad-surface);
+  border-radius: 10px;
+  border-collapse: collapse;
+}
+
+.recent-orders td:not(.table-header) {
+  border-bottom: 1px solid var(--ad-bg);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.table-header {
+  font-size: 17px;
+  font-weight: bold;
+  padding: 15px 20px;
+}
+
+.recent-orders th {
+  background-color: var(--ad-bg);
+  border-bottom: 1px solid var(--ad-bg);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ad-sub);
+  padding: 10px 20px;
+  text-align: left;
+}
+
+/* badge */
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.completed-delivery {
+  background-color: var(--ad-badge-bg-completed);
+  color: var(--ad-badge-text-completed);
+}
+
+.in-transit-delivery {
+  background-color: var(--ad-badge-bg-in-transit);
+  color: var(--ad-badge-text-in-transit);
+}
+
+.pending-payment {
+  background-color: var(--ad-badge-bg-pending);
+  color: var(--ad-badge-text-pending);
+}
+
+.cancelled-delivery {
+  background-color: var(--ad-badge-bg-cancelled);
+  color: var(--ad-badge-text-cancelled);
+}
+
+/* graph */
+
+.dashboard-layout {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.weekly-sales-chart {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+
+  background-color: var(--ad-surface);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.weekly-sales-chart h3 {
+  font-size: 15px;
+}
+
+.recent-activities {
+  flex: 1;
+  background-color: var(--ad-surface);
+  border-radius: 10px;
+}
+
+.chart-container {
+  margin-top: 20px;
+  height: 180px;
+  align-items: flex-end;
+}
+.bar {
+  background-color: var(--ad-primary);
+  border-radius: 6px 6px 0 0;
+}
+
+.chart-container,
+.chart-labels {
+  display: flex;
+  gap: 16px;
+  padding: 5px 20px;
+}
+
+.chart-labels span {
+  text-align: center;
+}
+
+.bar,
+.chart-labels span {
+  flex: 1;
+}
+
+/* recent-activities */
+
+.recent-activities {
+  padding: 20px;
+}
+
+.recent-header {
+  padding-bottom: 20px;
+}
+
+.activity-list {
+  display: flex;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.activity-list:not(.activity-list:last-child) {
+  border-bottom: 1px solid var(--ad-bg);
+}
+
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-img {
+  border-radius: 70%;
+}
+
+.activity-description {
+  font-size: 13px;
+}
+
+.activity-time {
+  font-size: 13px;
+  color: var(--ad-sub);
+}

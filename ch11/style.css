@@ -145,7 +145,7 @@ ul {
 
 .search {
   padding: 5px 10px;
-  border-bottom: 1px solid var(--ad-line);
+  border: 1px solid var(--ad-line);
   border-radius: 5px;
   color: var(--ad-sub);
   background-color: var(--ad-bg);
@@ -375,4 +375,88 @@ ul {
 .activity-time {
   font-size: 13px;
   color: var(--ad-sub);
+}
+
+/* 세부 처리 */
+.nav-item {
+  transition:
+    background-color 0.3s ease,
+    color 0.3 ease;
+}
+
+.nav-item:hover {
+  background-color: var(--ad-side-active);
+  border-radius: 6px;
+  color: var(--ad-bg);
+}
+
+.dashboard-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 0 10px rgba(200, 200, 200, 1);
+}
+
+tr {
+  transition: background-color 0.3s ease;
+}
+
+tr:hover {
+  background-color: var(--ad-bg);
+}
+
+.weekly-sales-chart {
+  transition: box-shadow 0.3s ease;
+}
+
+.weekly-sales-chart:hover {
+  box-shadow: 0 0 10px rgba(200, 200, 200, 1);
+}
+
+.recent-activities {
+  transition: box-shadow 0.3s ease;
+}
+
+.recent-activities:hover {
+  box-shadow: 0 0 10px rgba(200, 200, 200, 1);
+}
+
+.search:focus {
+  border: 1px solid var(--ad-primary);
+  background-color: var(--ad-surface);
+}
+
+/* 반응형 처리 */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 120px;
+  }
+
+  .sidebar-user {
+    padding: 20px 10px;
+  }
+
+  .nav-group {
+    flex-direction: row;
+  }
+
+  .nav-title {
+    display: none;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+  }
 }
